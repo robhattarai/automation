@@ -29,6 +29,7 @@ namespace Selenium
             driver.Url = AppVariables.GetURL();
         }
 
+
         public IWebDriver BrowserStackConnectUsingBrowserSpecificOptions()
         {
             var browserOptions = new ChromeOptions();
