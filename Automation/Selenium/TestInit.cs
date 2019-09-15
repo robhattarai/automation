@@ -16,6 +16,7 @@ namespace Selenium
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public IWebDriver driver;
+ //       DriverOptions browserOptions;
  
         [SetUp]
         public void SetUp()
@@ -32,11 +33,18 @@ namespace Selenium
 
         public IWebDriver BrowserStackConnectUsingBrowserSpecificOptions()
         {
-            var browserOptions = new ChromeOptions();
+            ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.AddAdditionalCapability("os", "Windows", true);
+            browserOptions.AddAdditionalCapability("browser", "chrome", true);
+ //           browserOptions.AddAdditionalCapability("browserstack.tunnel", false, true);
             browserOptions.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name, true);
-            browserOptions.AddAdditionalCapability("browserstack.user", AppVariables.BROWSERSTACK_USERNAME, true);
-            browserOptions.AddAdditionalCapability("browserstack.key", AppVariables.BROWSERSTACK_ACCESSKEY, true);
+            browserOptions.AddAdditionalCapability("browserstack.user", AppVariables.GetBROWSERSTACK_USERNAME(), true);
+            browserOptions.AddAdditionalCapability("browserstack.key", AppVariables.GetBROWSERSTACK_ACCESS_KEY(), true);
+ //           browserOptions.AddAdditionalCapability("browserstack.local", AppVariables.GetBROWSERSTACK_LOCAL(), true);
+//            browserOptions.AddAdditionalCapability("browserstack.localIdentifier", AppVariables.GetBROWSERSTACK_LOCAL_IDENTIFIER(), true);
             driver = new RemoteWebDriver(new Uri("http://hub-cloud.browserstack.com/wd/hub/"), browserOptions);
+            //driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), browserOptions);
+//            driver = new RemoteWebDriver(new Uri("https://" + AppVariables.BROWSERSTACK_USERNAME + ":" + AppVariables.BROWSERSTACK_ACCESSKEY + "@hub-cloud.browserstack.com/wd/hub/"), browserOptions);
             return driver;
         }
 
