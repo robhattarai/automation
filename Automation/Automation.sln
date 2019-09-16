@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium", "Selenium\Selenium.csproj", "{D4B62A1E-4A4C-4B4C-BBF9-A9713F383D15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumDotNetCore", "SeleniumDotNetCore\SeleniumDotNetCore.csproj", "{8C04B9AA-8127-4A14-897F-0489BCCBF4ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{D4B62A1E-4A4C-4B4C-BBF9-A9713F383D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B62A1E-4A4C-4B4C-BBF9-A9713F383D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B62A1E-4A4C-4B4C-BBF9-A9713F383D15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C04B9AA-8127-4A14-897F-0489BCCBF4ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C04B9AA-8127-4A14-897F-0489BCCBF4ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C04B9AA-8127-4A14-897F-0489BCCBF4ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C04B9AA-8127-4A14-897F-0489BCCBF4ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B97952B-F946-4BF9-BB7A-CD80134D213B}
 	EndGlobalSection
 EndGlobal
