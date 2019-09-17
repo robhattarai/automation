@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium", "Selenium\Selenium.csproj", "{D4B62A1E-4A4C-4B4C-BBF9-A9713F383D15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumDotNetFramework", "Selenium\SeleniumDotNetFramework.csproj", "{D4B62A1E-4A4C-4B4C-BBF9-A9713F383D15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumDotNetCore", "SeleniumDotNetCore\SeleniumDotNetCore.csproj", "{24E35093-30B8-40AB-A1AC-B9F39FBD11CF}"
 EndProject

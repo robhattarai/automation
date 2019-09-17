@@ -8,7 +8,7 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
 
-namespace Selenium
+namespace SeleniumDotNetFramework
 {
     [TestFixture]
     [Category("SauceLabTest"), Category("NUnit")]

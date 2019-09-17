@@ -1,11 +1,11 @@
 ﻿using NUnit.Framework;
-using Selenium.PageObjects;
+using SeleniumDotNetFramework.PageObjects;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System.Collections.Generic;
 
-namespace Selenium.Tests
+namespace SeleniumDotNetFramework.Tests
 {
     class TestAmazonSearchProduct : TestInit
     {

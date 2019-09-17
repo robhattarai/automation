@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System.Collections.Generic;
 
-namespace Selenium.PageObjects
+namespace SeleniumDotNetFramework.PageObjects
 {
     class SearchResultsPage
     {
