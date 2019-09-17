@@ -1,15 +1,43 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
+# any commit to the master branch will trigger the CI build
 trigger:
 - master
 
+# use a Windows agent with VS to build the .NET Core MSTest project
+# you can replace this with Ubuntu too without changing the tasks
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Hosted Windows with VS2017 15.9
 
 steps:
-- script: echo Selenium Automation Tests Modified 
-  displayName: 'Selenium Automation Tests Modified'
+# install the required .NET Core SDK version
+# only necessary if the agent doesn't already have the required SDK
+- task: DotNetCoreInstaller@0
+  displayName: 'Use .NET Core sdk 2.1'
+  inputs:
+    version: 2.1.509
 
+# restore Nuget packages/dependencies
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '**/Demo.SeleniumTests.csproj'
+
+# publish the UI test project to the SeleliumTest subfolder in the Artifact Staging Directory
+# optionally, you can add more steps to publish your own website alongside your SeleniumTests in another task
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: '**/SeleniumDotNetCore.csproj'
+    arguments: '--configuration Release -o $(build.artifactstagingdirectory)/SeleniumTests'
+    zipAfterPublish: false
+    modifyOutputPath: false
+
+# publish all artifacts in the Artifact Stagign Directory
+# this will place the UI Test artifacts in Azure DevOps for future use in the deployment pipeline
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
