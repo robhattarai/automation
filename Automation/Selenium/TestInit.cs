@@ -23,7 +23,7 @@ namespace Selenium
         {
             log.Info("Open Browser and Navigate URL: " + AppVariables.URL);
             XmlConfigurator.Configure();
-            //driver = new ChromeDriver();
+         //   driver = new ChromeDriver();
             driver = BrowserStackConnectUsingBrowserSpecificOptions();
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
             driver.Manage().Window.Maximize();

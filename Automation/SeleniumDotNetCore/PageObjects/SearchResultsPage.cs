@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SeleniumDotNetCore.PageObjects
 {
-    class SearchResultsPage
+    public class SearchResultsPage
     {
         public static IWebElement LabelResultCountSummary (IWebDriver driver) => driver.FindElement(By.ClassName("sg-col-inner"));
 

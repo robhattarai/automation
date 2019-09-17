@@ -3,7 +3,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace SeleniumDotNetCore.PageObjects
 {
-    class SearchPage : TestInit
+    public class SearchPage : TestInit
     {
         /***
          * Page Factory has been deprecated from Selenium 3.6.0

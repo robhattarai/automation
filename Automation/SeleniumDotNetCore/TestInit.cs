@@ -17,17 +17,19 @@ namespace SeleniumDotNetCore
     public class TestInit
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private readonly string driverPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
         public IWebDriver driver;
         //       DriverOptions browserOptions;
 
         [SetUp]
         public void SetUp()
         {
-            log.Info("Open Browser and Navigate URL: " + AppVariables.URL);
+            log.Info("Open Browser and Navigate URL: " + AppVariables.GetURL());
             var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
             XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
-            driver = new ChromeDriver();
-            //  driver = BrowserStackConnectUsingBrowserSpecificOptions();
+            //driver = new ChromeDriver(driverPath);
+            driver = BrowserStackConnectUsingBrowserSpecificOptions();
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
             driver.Manage().Window.Maximize();
             driver.Url = AppVariables.GetURL();
