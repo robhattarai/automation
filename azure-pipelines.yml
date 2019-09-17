@@ -5,7 +5,7 @@ trigger:
 # use a Windows agent with VS to build the .NET Core MSTest project
 # you can replace this with Ubuntu too without changing the tasks
 pool:
-  name: Hosted Windows with VS2017 15.9
+  name: Hosted VS2017
 
 steps:
 # install the required .NET Core SDK version
@@ -20,7 +20,7 @@ steps:
   displayName: Restore
   inputs:
     command: restore
-    projects: '**/Demo.SeleniumTests.csproj'
+    projects: '**/SeleniumDotNetCore.csproj'
 
 # publish the UI test project to the SeleliumTest subfolder in the Artifact Staging Directory
 # optionally, you can add more steps to publish your own website alongside your SeleniumTests in another task
